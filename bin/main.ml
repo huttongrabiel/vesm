@@ -20,5 +20,7 @@
     | n -> Printf.printf "Error encountered. Exit code: %i\n%!" n *)
 
 let () =
-    let responses = Vesm.User_input.get_user_input [] in
-    List.iter (Vesm.User_input.print_response) responses
+    let responses = Vesm.User_input.get_user_input in
+    match responses with
+    | [] -> print_endline "Responses is empty!"
+    | _ :: _ -> List.iter Vesm.User_input.print_response responses

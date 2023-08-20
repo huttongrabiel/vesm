@@ -16,8 +16,7 @@ let prompts = [
 ]
 
 let print_response response =
-    print_endline response.prompt;
-    print_endline response.answer
+    Printf.printf "Q: %s\nA: %s\n%!" response.prompt response.answer
 
 let get_contents_from_prompt p =
     match p with
@@ -26,14 +25,13 @@ let get_contents_from_prompt p =
 
 (* user_response is just a list where can dump the prompt and answer which
    will eventually be formatted and placed in the output file *)
-let get_user_input user_response =
-    let rec aux prompt_list =
-        match prompt_list with
+let get_user_input =
+    let rec aux prompt_list user_response =
+        (match prompt_list with
         | [] -> user_response
         | h :: t ->
                 let prompt_contents = get_contents_from_prompt h in
                 let user_input = prompt_contents |> Helpers.prompt in
                 let cur_response = { prompt = prompt_contents; answer = user_input} in
-                let _ = cur_response :: user_response in
-                aux t in
-    aux prompts
+                aux t (cur_response :: user_response)) in
+    List.rev (aux prompts [])
