@@ -26,6 +26,6 @@ let rec get_user_input prompt_list user_response =
     | [] -> "Good job completing this momentary assessment!\n"
     | h :: t ->
             let prompt_contents = get_contents_from_prompt h in
-            let user_input = Helpers.prompt prompt_contents in
+            let user_input = prompt_contents |> Helpers.prompt in
             let cur_response = { prompt = prompt_contents; answer = user_input} in
             get_user_input t (cur_response :: user_response)
