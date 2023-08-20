@@ -15,7 +15,7 @@ The idea was proposed by Reed Larson and Mihaly Csikszentmihalyi in this [paper]
 
 # Systemd
 
-Sysemd can be used to have this program start running when the computer boots. This allows
+Systemd can be used to have this program start running when the computer boots. This allows
 it to run immediately and throughout the day. Instructions will be here when I get to doing
 this myself.
 
