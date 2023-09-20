@@ -14,3 +14,21 @@ let build_date () =
     let month = string_of_int (localtime.tm_mon+1) in
     let day = string_of_int localtime.tm_mday in
     year ^ "-" ^ month ^ "-" ^ day
+
+(* TODO: See if Unix provides helper function for this conversion *)
+(* Given int representing month, return month name belonging to that num *)
+let month_name_from_num num =
+    match num with
+    | 1 -> "January"
+    | 2 -> "February"
+    | 3 -> "March"
+    | 4 -> "April"
+    | 5 -> "May"
+    | 6 -> "June"
+    | 7 -> "July"
+    | 8 -> "August"
+    | 9 -> "September"
+    | 10 -> "October"
+    | 11 -> "November"
+    | 12 -> "December"
+    | _ -> "Invalid"
