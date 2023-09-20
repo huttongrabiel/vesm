@@ -7,14 +7,6 @@ let prompt p =
 let read_file_contents path =
     In_channel.with_open_bin path In_channel.input_all
 
-(* Returns string containing date in "YYYY-MM-DD" form *)
-let build_date () =
-    let localtime = Unix.time () |> Unix.localtime in
-    let year = string_of_int (localtime.tm_year + 1900) in
-    let month = string_of_int (localtime.tm_mon+1) in
-    let day = string_of_int localtime.tm_mday in
-    year ^ "-" ^ month ^ "-" ^ day
-
 (* TODO: See if Unix provides helper function for this conversion *)
 (* Given int representing month, return month name belonging to that num *)
 let month_name_from_num num =
