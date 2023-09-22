@@ -14,7 +14,6 @@ let get_entry_dir_path () =
     let day = string_of_int localtime.tm_mday in
     let formatted_date = year ^ "-" ^ month_num_str ^ "-" ^ day in
     let entry_dir_path = base_path ^ year ^ "/" ^ month_name ^ "/" ^ formatted_date ^ "/" in
-    print_endline ("entry_dir_path: " ^ entry_dir_path);
     entry_dir_path
 
 (* Builds entry directory in form ~/vesm/<year>/<month>/<YYYY-MM-DD>/ *)
